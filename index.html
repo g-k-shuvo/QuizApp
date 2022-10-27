@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <!-- Home Page  -->
+    <section id="home">
+      <div class="container">
+        <img src="./images/showcase.png" alt="Showcase Image" />
+        <div class="banner">
+          <div class="banner-content">
+            <h1>MCQ TEST</h1>
+            <div class="box home-box">
+              <h3>Total Questions 10 In 10 Minute</h3>
+              <p>MCQ about Tense (English 2nd paper)</p>
+              <button class="qApp-btn home-btn" id="start-btn">Start</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mcqPage" class="hide">
+      <div class="container">
+        <div class="header box">
+          <h1>Remaining Time: <span id="remaining-time"></span></h1>
+          <button class="qApp-btn finishBtn" id="finish-btn">Finish</button>
+        </div>
+        <div id="mcq-container"></div>
+      </div>
+    </section>
+
+    <section id="congrats" class="hide"></section>
+
+    <section id="timeOut" class="hide"></section>
+
+    <!-- MCQ Section -->
+    <!-- <section id="mcq" class="hide">
+      <div class="mcq-container">
+        <div class="header">
+          <div class="remaining-time">
+            Remaining Time: <span id="remaining"></span>
+          </div>
+          <button class="finish-btn">Finish</button>
+        </div>
+        <div class="mcqs"></div>
+      </div>
+    </section> -->
+
+    <!-- Success Section  -->
+    <!-- <section id="success">
+      <div class="success-box">
+        <img src="./images/congrats.png" alt="" />
+        <h3>MCQ Result</h3>
+        <p>You Got 7 Score</p>
+        <button>Start Again</button>
+      </div>
+    </section> -->
+
+    <!-- Success Section  -->
+    <!-- <section id="success">
+      <div class="success-box">
+        <img src="./images/stopwatch.png" alt="" />
+        <h3>Timeout</h3>
+        <button>Start Again</button>
+      </div>
+    </section> -->
+
+    <script src="./script.js"></script>
+  </body>
+</html>

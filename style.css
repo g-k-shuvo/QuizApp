@@ -1,0 +1,247 @@
+/* Google Fonts - Rosario & Raleway */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Rosario&display=swap");
+
+/* Reset Default Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+/* Reusables */
+.hide {
+  display: none;
+}
+
+.qApp-btn {
+  background: #000000;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+  color: #ffffff;
+  padding: 12px 42px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.box {
+  background: #ffffff;
+  box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 24px 30px;
+  text-align: center;
+}
+
+/* Home Section */
+#home {
+  background: #e0cabc;
+}
+
+#home .container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#home .banner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#home .banner .banner-content h1 {
+  font-family: "Rosario", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 45px;
+  color: #000000;
+  margin-bottom: 36px;
+}
+
+#home .banner .banner-content .home-box h3 {
+  font-weight: 600;
+  font-size: 35px;
+  color: #373434;
+  margin-bottom: 20px;
+}
+
+#home .banner .banner-content .home-box p {
+  font-weight: 300;
+  font-size: 25px;
+  color: #373434;
+  margin-bottom: 20px;
+}
+
+#home .banner .banner-content .home-box .home-btn {
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+}
+
+/* MCQ Page Section */
+
+#mcqPage {
+  background: #b0b8ff;
+}
+
+#mcqPage .container {
+  padding: 70px 0 30px 0;
+  width: 70%;
+  margin: 0 auto;
+}
+
+#mcqPage .container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mcqPage.container .header h1 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#mcqPage .container #mcq-container .mcq {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#mcqPage .container #mcq-container .mcq h3 {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+#mcqPage .container #mcq-container .mcq label {
+  margin: 10px 0;
+  display: block;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#mcqPage .container #mcq-container .mcq input {
+  margin-right: 10px;
+}
+
+/* 
+.mcq-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#mcq .header {
+  background-color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mcq .header .remaining-time {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+}
+
+#mcq .header .finish-btn {
+  background: #000000;
+  border-radius: 5px;
+  font-family: "Raleway" sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 8px 36px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+#mcq .mcq-container .mcq-box {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 36px 42px;
+  border-radius: 20px;
+}
+
+#mcq .mcq-container .mcq-box .question {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+}
+
+#mcq .mcq-container .mcq-box .choice {
+  margin: 10px 0;
+}
+
+#mcq .mcq-container .mcq-box .choice input {
+  margin-right: 10px;
+}
+
+#mcq .mcq-container .mcq-box .choice label {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+
+#success {
+  height: 100vh;
+  background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#success .success-box {
+  width: 400px;
+  background: #ffffff;
+  box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  text-align: center;
+  padding: 16px 24px;
+}
+
+#success .success-box h3 {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+#success .success-box p {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  text-align: center;
+  color: #373434;
+  margin-bottom: 16px;
+}
+
+#success .success-box button {
+  background: #000000;
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  width: 100%;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.hide {
+  display: none;
+} */
