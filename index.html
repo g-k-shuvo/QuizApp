@@ -11,14 +11,16 @@
     <!-- Home Page  -->
     <section id="home-page">
       <div class="container">
-        <img src="./images/showcase.png" alt="Showcase Image" />
-        <div class="banner">
-          <div class="banner-content">
-            <h1>MCQ TEST</h1>
-            <div class="box home-box">
-              <h3>Total Questions 10 In 10 Minute</h3>
-              <p>MCQ about Tense (English 2nd paper)</p>
-              <button class="qApp-btn home-btn" id="start-btn">Start</button>
+        <div class="showcase">
+          <img src="./images/showcase.png" alt="Showcase Image" />
+          <div class="banner">
+            <div class="banner-content">
+              <h1>MCQ TEST</h1>
+              <div class="box home-box">
+                <h3>Total Questions 10 In 10 Minute</h3>
+                <p>MCQ about Tense (English 2nd paper)</p>
+                <button class="qApp-btn home-btn" id="start-btn">Start</button>
+              </div>
             </div>
           </div>
         </div>
@@ -28,37 +30,45 @@
     <!-- MCQ Page -->
     <section id="mcq-page" class="hide">
       <div class="container">
-        <div class="header box">
-          <h1>Remaining Time: <span id="remaining-time"></span></h1>
-          <button class="qApp-btn finishBtn" id="finish-btn">Finish</button>
+        <div class="content">
+          <div class="header box">
+            <h1>Remaining Time: <span id="remaining-time"></span></h1>
+            <button class="qApp-btn finishBtn" id="finish-btn">Finish</button>
+          </div>
+          <div class="mcq-container" id="mcq-container"></div>
         </div>
-        <div id="mcq-container"></div>
       </div>
     </section>
 
     <!-- Result Page  -->
     <section id="result-page" class="hide">
-      <div class="result-container">
-        <div class="result-box box">
-          <img src="./images/congrats.png" alt="" />
-          <h3>MCQ Result</h3>
-          <p>You Got <span id="score-container"></span> Score</p>
-          <button class="qApp-btn congrats-btn" id="result-start-again">
-            Start Again
-          </button>
+      <div class="container">
+        <div class="box-container">
+          <div class="result-box box">
+            <img src="./images/congrats.png" alt="" class="box-img" />
+            <h3 class="box-heading">MCQ Result</h3>
+            <p class="box-subtitle">
+              You Got <span id="score-container"></span> Score
+            </p>
+            <button class="qApp-btn congrats-btn" id="result-start-again">
+              Start Again
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Timeout Page -->
     <section id="timeout-page" class="hide">
-      <div class="timeout-container">
-        <div class="timeout-box box">
-          <img src="./images/stopwatch.png" alt="" />
-          <h3>Time out</h3>
-          <button class="qApp-btn congrats-btn" id="timeout-start-again">
-            Start Again
-          </button>
+      <div class="container">
+        <div class="box-container">
+          <div class="timeout-box box">
+            <img src="./images/stopwatch.png" alt="" class="box-img" />
+            <h3 class="box-heading timeout-heading">Time out</h3>
+            <button class="qApp-btn congrats-btn" id="timeout-start-again">
+              Start Again
+            </button>
+          </div>
         </div>
       </div>
     </section>

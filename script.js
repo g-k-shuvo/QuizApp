@@ -140,7 +140,7 @@ const init = () => {
   mcqContainer.innerHTML = "";
   scoreCount = 0;
   remainingTimeContainer.innerHTML = "";
-  tenMinutesToSeconds = 600;
+  tenMinutesToSeconds = 10;
 
   timerDisplay();
   displayQuiz();

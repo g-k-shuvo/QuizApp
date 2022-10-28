@@ -23,6 +23,39 @@ img {
   display: none;
 }
 
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.box-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-container .box-img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.box-container .box-heading {
+  font-weight: 700;
+  font-size: 42px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.box-container .box-subtitle {
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #373434;
+  margin-bottom: 20px;
+}
+
 .qApp-btn {
   background: #000000;
   border-radius: 5px;
@@ -48,17 +81,18 @@ img {
   background: #e0cabc;
 }
 
-#home-page .container {
+#home-page .showcase {
   height: 100vh;
   display: flex;
   justify-content: center;
   padding: 60px;
 }
 
-/* #home-page .container img {
-  width: 600px;
+#home-page .showcase img {
+  max-width: 500px;
   height: auto;
-} */
+}
+
 #home-page .banner {
   height: 100%;
   display: flex;
@@ -100,42 +134,42 @@ img {
   background: #b0b8ff;
 }
 
-#mcq-page .container {
+#mcq-page .content {
   padding: 70px 0 30px 0;
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
 }
 
-#mcq-page .container .header {
+#mcq-page .content .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#mcq-page.container .header h1 {
+#mcq-page .content .header h1 {
   font-weight: 700;
   font-size: 30px;
 }
 
-#mcq-page .container #mcq-container .mcq {
+#mcq-page .content .mcq-container .mcq {
   margin-top: 20px;
   text-align: left;
 }
 
-#mcq-page .container #mcq-container .mcq h3 {
+#mcq-page .content .mcq-container .mcq h3 {
   font-weight: 700;
   font-size: 30px;
   margin-bottom: 16px;
 }
 
-#mcq-page .container #mcq-container .mcq label {
+#mcq-page .content .mcq-container .mcq label {
   margin: 10px 0;
   display: block;
   font-weight: 400;
   font-size: 20px;
 }
 
-#mcq-page .container #mcq-container .mcq input {
+#mcq-page .content .mcq-container .mcq input {
   margin-right: 10px;
 }
 
@@ -144,107 +178,38 @@ img {
   background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
 }
 
-#result-page .result-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#result-page .result-box img {
-  width: 200px;
-}
-
-#result-page .result-box h3 {
-  font-weight: 700;
-  font-size: 45px;
-  color: #000000;
-  margin-bottom: 16px;
-}
-
-#result-page .result-box p {
-  font-weight: 400;
-  font-size: 25px;
-  text-align: center;
-  color: #373434;
-  margin-bottom: 16px;
-}
-
 /* Timeout Page */
 #timeout-page {
   background: linear-gradient(269.85deg, #ff646d 0.12%, #f45656 99.86%);
 }
 
-#timeout-page .timeout-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#timeout-page .timeout-box img {
-  width: 200px;
-}
-
-#timeout-page .timeout-box h3 {
-  font-weight: 700;
-  font-size: 45px;
-  color: #000000;
-  margin: 20px 0px;
+#timeout-page .timeout-heading {
   text-transform: uppercase;
 }
 
 /* Responsive Styles */
+
 @media (max-width: 991.98px) {
-  #mcq-page .container {
-    padding: 40px 0 30px 0;
-    width: 80%;
-  }
-}
-
-@media (max-width: 767.98px) {
-  #home-page .container {
-    flex-direction: column;
-    align-items: center;
-    padding: 60px;
-  }
-
-  #home-page .container img {
-    max-width: 400px;
-  }
-
-  #mcq-page .container {
-    padding: 30px 0 30px 0;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  #mcq-page .container .header {
-    flex-direction: column;
-  }
-
-  #mcq-page .container .header .finishBtn {
-    margin-top: 16px;
-    display: block;
-    width: 60%;
-  }
-
-  #result-page .result-box img,
-  #timeout-page .timeout-box img {
-    width: 150px;
+  #home-page .showcase img {
+    max-width: 450px;
     height: auto;
   }
 }
 
-@media (max-width: 575.98px) {
-  .qApp-btn {
-    font-size: 18px;
-    text-align: center;
-    padding: 10px 24px;
+@media (max-width: 767.98px) {
+  #home-page .showcase {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 60px;
   }
 
-  #home-page .container img {
-    max-width: 350px;
+  #home-page .showcase img {
+    max-width: 400px;
+  }
+
+  #home-page .banner .banner-content h1 {
+    font-size: 32px;
   }
 
   #home-page .banner .banner-content .home-box h3 {
@@ -256,34 +221,116 @@ img {
   }
 
   #home-page .banner .banner-content .home-box .home-btn {
-    width: 90%;
+    width: 80%;
   }
 
-  #mcq-page.container .header h1 {
+  #mcq-page .content {
+    padding: 30px 0 30px 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #mcq-page .content .header {
+    flex-direction: column;
+  }
+
+  #mcq-page .content .header h1 {
+    font-size: 24px;
+  }
+
+  #mcq-page .content .mcq-container .mcq h3 {
     font-size: 20px;
   }
 
-  #mcq-page .container #mcq-container .mcq h3 {
-    font-size: 20px;
-  }
-
-  #mcq-page .container #mcq-container .mcq label {
+  #mcq-page .content .mcq-container .mcq label {
     font-size: 18px;
   }
 
-  #result-page .result-box img,
-  #timeout-page .timeout-box img {
-    width: 100px;
+  #mcq-page .content .header .finishBtn {
+    margin-top: 16px;
+    display: block;
+    width: 60%;
+  }
+
+  .box-container .box-img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.box-container .box-heading {
+  font-size: 32px;
+}
+
+.box-container .box-subtitle {
+  font-size: 24px;
+}
+
+@media (max-width: 575.98px) {
+  .qApp-btn {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 24px;
+  }
+
+  #home-page .showcase {
+    gap: 30px;
+    padding: 30px;
+  }
+
+  #home-page .showcase img {
+    max-width: 350px;
     height: auto;
   }
 
-  #result-page .result-box h3,
-  #timeout-page .timeout-box h3 {
-    font-size: 32px;
+  #home-page .banner .banner-content h1 {
+    font-size: 28px;
   }
 
-  #result-page .result-box p,
-  #timeout-page .timeout-box p {
+  #home-page .banner .banner-content .home-box h3 {
+    font-size: 20px;
+  }
+
+  #home-page .banner .banner-content .home-box p {
+    font-size: 16px;
+  }
+
+  #home-page .banner .banner-content .home-box .home-btn {
+    width: 90%;
+  }
+
+  #mcq-page .content {
+    padding: 20px 0 30px 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #mcq-page .content .header h1 {
+    font-size: 20px;
+  }
+
+  #mcq-page .content .mcq-container .mcq h3 {
     font-size: 18px;
   }
+
+  #mcq-page .content .mcq-container .mcq label {
+    font-size: 16px;
+  }
+
+  #mcq-page .content .header .finishBtn {
+    width: 70%;
+  }
+
+  .box-container .box-img {
+    width: 120px;
+    height: auto;
+  }
+}
+
+.box-container .box-heading {
+  font-size: 24px;
+}
+
+.box-container .box-subtitle {
+  font-size: 18px;
 }
