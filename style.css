@@ -13,6 +13,11 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Reusables */
 .hide {
   display: none;
@@ -38,7 +43,7 @@ body {
   text-align: center;
 }
 
-/* Home Section */
+/* Home Page */
 #home-page {
   background: #e0cabc;
 }
@@ -47,8 +52,13 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  padding: 60px;
 }
 
+/* #home-page .container img {
+  width: 600px;
+  height: auto;
+} */
 #home-page .banner {
   height: 100%;
   display: flex;
@@ -85,15 +95,14 @@ body {
   margin: 0 auto;
 }
 
-/* MCQ Page Section */
-
+/* MCQ Page  */
 #mcq-page {
   background: #b0b8ff;
 }
 
 #mcq-page .container {
   padding: 70px 0 30px 0;
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -130,7 +139,7 @@ body {
   margin-right: 10px;
 }
 
-/* Result Page Section */
+/* Result Page */
 #result-page {
   background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
 }
@@ -142,9 +151,8 @@ body {
   align-items: center;
 }
 
-#result-page .result-box {
-  width: 430px;
-  margin: 0 auto;
+#result-page .result-box img {
+  width: 200px;
 }
 
 #result-page .result-box h3 {
@@ -162,7 +170,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* Timeout Page Section */
+/* Timeout Page */
 #timeout-page {
   background: linear-gradient(269.85deg, #ff646d 0.12%, #f45656 99.86%);
 }
@@ -174,9 +182,8 @@ body {
   align-items: center;
 }
 
-#timeout-page .timeout-box {
-  width: 430px;
-  margin: 0 auto;
+#timeout-page .timeout-box img {
+  width: 200px;
 }
 
 #timeout-page .timeout-box h3 {
@@ -187,56 +194,44 @@ body {
   text-transform: uppercase;
 }
 
-/* #success {
-  height: 100vh;
-  background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  #mcq-page .container {
+    padding: 40px 0 30px 0;
+    width: 80%;
+  }
 }
 
-#success .success-box {
-  width: 400px;
-  background: #ffffff;
-  box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  text-align: center;
-  padding: 16px 24px;
-}
+@media (max-width: 767.98px) {
+  #home-page .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+  }
 
-#success .success-box h3 {
-  font-family: "Raleway", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 45px;
-  text-align: center;
-  color: #000000;
-  margin-bottom: 16px;
-}
+  #home-page .container img {
+    max-width: 400px;
+  }
 
-#success .success-box p {
-  font-family: "Raleway", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 25px;
-  text-align: center;
-  color: #373434;
-  margin-bottom: 16px;
-}
+  #mcq-page .container {
+    padding: 30px 0 30px 0;
+    width: 80%;
+    margin: 0 auto;
+  }
 
-#success .success-box button {
-  background: #000000;
-  border-radius: 5px;
-  font-family: "Raleway", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  width: 100%;
-  color: #ffffff;
-  text-transform: uppercase;
-  padding: 10px 0;
-}
+  #mcq-page .container .header {
+    flex-direction: column;
+  }
 
-.hide {
-  display: none;
-} */
+  #mcq-page .container .header .finishBtn {
+    margin-top: 16px;
+    display: block;
+    width: 60%;
+  }
+
+  #result-page .result-box img,
+  #timeout-page .timeout-box img {
+    width: 150px;
+    height: auto;
+  }
+}

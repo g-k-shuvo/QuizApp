@@ -104,100 +104,77 @@ const resultPage = document.getElementById("result-page");
 const timeoutPage = document.getElementById("timeout-page");
 const startButton = document.getElementById("start-btn");
 const finishBtn = document.getElementById("finish-btn");
-const startAgainBtn = document.getElementById("start-again");
+const resultPageStartAgainBtn = document.getElementById("result-start-again");
+const timeoutPageStartAgainBtn = document.getElementById("timeout-start-again");
 const remainingTimeContainer = document.getElementById("remaining-time");
 const mcqContainer = document.getElementById("mcq-container");
 const scoreContainer = document.getElementById("score-container");
 
 // Variables
-let countdown;
-let count = 600;
+let countdownTimer;
+let tenMinutesToSeconds;
 let scoreCount;
 
-// Function to Restart Quiz
-
-// Initializer
-function init() {
-  mcqContainer.innerHTML = "";
-  scoreCount = 0;
-  remainingTimeContainer.innerHTML = "";
-  count = 60;
-  timerDisplay();
-  displayQuiz();
-}
-
-// Go to MCQ Page
-startButton.addEventListener("click", () => {
-  homePage.classList.add("hide");
-  mcqPage.classList.remove("hide");
-  init();
-});
-
-// Finish Quiz
-finishBtn.addEventListener("click", () => {
-  mcqPage.classList.add("hide");
-  resultPage.classList.remove("hide");
-  scoreContainer.innerHTML = scoreCount;
-  clearInterval(countdown);
-});
-
-// Restart Quiz
-startAgainBtn.addEventListener("click", (e) => {
-  init();
-  resultPage.classList.add("hide");
-  homePage.classList.add("hide");
-  mcqPage.classList.remove("hide");
-});
-
+// 10 Minutes Timer
 const timerDisplay = () => {
   function twoDigits(n) {
     return n <= 9 ? "0" + n : n;
   }
-
-  countdown = setInterval(() => {
-    let minutes = Math.floor(count / 60);
-    let seconds = count - minutes * 60;
-    count--;
-    remainingTimeContainer.innerHTML = `${twoDigits(minutes)}: ${twoDigits(
-      seconds
-    )}`;
-    if (count == 0) {
-      clearInterval(countdown);
+  countdownTimer = setInterval(() => {
+    let minutes = Math.floor(tenMinutesToSeconds / 60);
+    let seconds = tenMinutesToSeconds - minutes * 60;
+    tenMinutesToSeconds--;
+    remainingTimeContainer.innerHTML = `00 : ${twoDigits(
+      minutes
+    )} : ${twoDigits(seconds)}`;
+    if (tenMinutesToSeconds === 0) {
+      clearInterval(countdownTimer);
       mcqPage.classList.add("hide");
       timeoutPage.classList.remove("hide");
     }
   }, 1000);
 };
 
-// // 10 Min Countdown Timer
-// function countdown(elementName, minutes, seconds) {
-//   let element, endTime, hours, mins, msLeft, time;
+// Initializer
+const init = () => {
+  mcqContainer.innerHTML = "";
+  scoreCount = 0;
+  remainingTimeContainer.innerHTML = "";
+  tenMinutesToSeconds = 600;
 
-//   function twoDigits(n) {
-//     return n <= 9 ? "0" + n : n;
-//   }
+  timerDisplay();
+  displayQuiz();
+};
 
-//   function updateTimer() {
-//     msLeft = endTime - +new Date();
-//     if (msLeft < 1000) {
-//       // element.innerHTML = "Time is up!";
-//       clearTimeout();
-//     } else {
-//       time = new Date(msLeft);
-//       hours = time.getUTCHours();
-//       mins = time.getUTCMinutes();
-//       element.innerHTML =
-//         (hours ? hours + ":" + twoDigits(mins) : mins) +
-//         ":" +
-//         twoDigits(time.getUTCSeconds());
-//       setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
-//     }
-//   }
-//   element = elementName;
-//   endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
+// Display Start Screen On Load & Reload
+const showHomepage = () => {
+  homePage.classList.remove("hide");
+  mcqPage.classList.add("hide");
+};
 
-//   updateTimer();
-// }
+// Go To MCQ Page
+const goToMCQ = () => {
+  homePage.classList.add("hide");
+  mcqPage.classList.remove("hide");
+  init();
+};
+
+// Go To Result Page
+const goToResultPage = () => {
+  mcqPage.classList.add("hide");
+  resultPage.classList.remove("hide");
+  scoreContainer.innerHTML = scoreCount;
+  clearInterval(countdownTimer);
+};
+
+// Restart Quiz App
+const restartQuiz = () => {
+  init();
+  resultPage.classList.add("hide");
+  homePage.classList.add("hide");
+  timeoutPage.classList.add("hide");
+  mcqPage.classList.remove("hide");
+};
 
 // Function to Generate & Show All The Quiz
 function displayQuiz() {
@@ -209,7 +186,6 @@ function displayQuiz() {
     question_el.classList.add("question");
     question_el.innerHTML = `${i + 1}. ${questionsArray[i].title}`;
     div.appendChild(question_el);
-
     questionsArray[i].options.forEach((option) => {
       div.innerHTML += `
                 <label><input type="radio" data-Index="${i}" class="options" name="question${i}" value="${option}" onclick="checkAnswer(this)" >${option}</label>
@@ -219,6 +195,7 @@ function displayQuiz() {
   }
 }
 
+// Check If The User Selected Correct Answer
 function checkAnswer(userOption) {
   let userSolution = userOption.value;
   let questionIndex = userOption.dataset.index;
@@ -227,15 +204,16 @@ function checkAnswer(userOption) {
 
   if (userSolution === questionsArray[questionIndex].answer) {
     scoreCount++;
-    //   } else {
-    //     //For marking the correct option
-    //     options.forEach((element) => {
-    //       if (element.innerText == questionsArray[questionIndex].answer) {
-    //         element.classList.add("correct");
-    //       }
-    //     });
   }
+  // Disable All Options
   options.forEach((element) => {
     element.disabled = true;
   });
 }
+
+// Eventlisteners
+startButton.addEventListener("click", goToMCQ);
+finishBtn.addEventListener("click", goToResultPage);
+resultPageStartAgainBtn.addEventListener("click", restartQuiz);
+timeoutPageStartAgainBtn.addEventListener("click", restartQuiz);
+window.addEventListener("load", showHomepage);
