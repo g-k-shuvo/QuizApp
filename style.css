@@ -39,24 +39,24 @@ body {
 }
 
 /* Home Section */
-#home {
+#home-page {
   background: #e0cabc;
 }
 
-#home .container {
+#home-page .container {
   height: 100vh;
   display: flex;
   justify-content: center;
 }
 
-#home .banner {
+#home-page .banner {
   height: 100%;
   display: flex;
   align-items: center;
   text-align: center;
 }
 
-#home .banner .banner-content h1 {
+#home-page .banner .banner-content h1 {
   font-family: "Rosario", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
@@ -65,21 +65,21 @@ body {
   margin-bottom: 36px;
 }
 
-#home .banner .banner-content .home-box h3 {
+#home-page .banner .banner-content .home-box h3 {
   font-weight: 600;
   font-size: 35px;
   color: #373434;
   margin-bottom: 20px;
 }
 
-#home .banner .banner-content .home-box p {
+#home-page .banner .banner-content .home-box p {
   font-weight: 300;
   font-size: 25px;
   color: #373434;
   margin-bottom: 20px;
 }
 
-#home .banner .banner-content .home-box .home-btn {
+#home-page .banner .banner-content .home-box .home-btn {
   display: block;
   width: 75%;
   margin: 0 auto;
@@ -87,112 +87,107 @@ body {
 
 /* MCQ Page Section */
 
-#mcqPage {
+#mcq-page {
   background: #b0b8ff;
 }
 
-#mcqPage .container {
+#mcq-page .container {
   padding: 70px 0 30px 0;
   width: 70%;
   margin: 0 auto;
 }
 
-#mcqPage .container .header {
+#mcq-page .container .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#mcqPage.container .header h1 {
+#mcq-page.container .header h1 {
   font-weight: 700;
   font-size: 30px;
 }
 
-#mcqPage .container #mcq-container .mcq {
+#mcq-page .container #mcq-container .mcq {
   margin-top: 20px;
   text-align: left;
 }
 
-#mcqPage .container #mcq-container .mcq h3 {
+#mcq-page .container #mcq-container .mcq h3 {
   font-weight: 700;
   font-size: 30px;
   margin-bottom: 16px;
 }
 
-#mcqPage .container #mcq-container .mcq label {
+#mcq-page .container #mcq-container .mcq label {
   margin: 10px 0;
   display: block;
   font-weight: 400;
   font-size: 20px;
 }
 
-#mcqPage .container #mcq-container .mcq input {
+#mcq-page .container #mcq-container .mcq input {
   margin-right: 10px;
 }
 
-/* 
-.mcq-container {
-  width: 60%;
-  margin: 0 auto;
+/* Result Page Section */
+#result-page {
+  background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
 }
 
-#mcq .header {
-  background-color: #ffffff;
-  padding: 16px 36px;
-  border-radius: 20px;
+#result-page .result-container {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-#mcq .header .remaining-time {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  color: #000000;
+#result-page .result-box {
+  width: 430px;
+  margin: 0 auto;
 }
 
-#mcq .header .finish-btn {
-  background: #000000;
-  border-radius: 5px;
-  font-family: "Raleway" sans-serif;
+#result-page .result-box h3 {
   font-weight: 700;
+  font-size: 45px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+#result-page .result-box p {
+  font-weight: 400;
   font-size: 25px;
-  padding: 8px 36px;
-  color: #ffffff;
+  text-align: center;
+  color: #373434;
+  margin-bottom: 16px;
+}
+
+/* Timeout Page Section */
+#timeout-page {
+  background: linear-gradient(269.85deg, #ff646d 0.12%, #f45656 99.86%);
+}
+
+#timeout-page .timeout-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timeout-page .timeout-box {
+  width: 430px;
+  margin: 0 auto;
+}
+
+#timeout-page .timeout-box h3 {
+  font-weight: 700;
+  font-size: 45px;
+  color: #000000;
+  margin: 20px 0px;
   text-transform: uppercase;
 }
 
-#mcq .mcq-container .mcq-box {
-  margin-top: 30px;
-  background-color: #ffffff;
-  padding: 36px 42px;
-  border-radius: 20px;
-}
-
-#mcq .mcq-container .mcq-box .question {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  color: #000000;
-}
-
-#mcq .mcq-container .mcq-box .choice {
-  margin: 10px 0;
-}
-
-#mcq .mcq-container .mcq-box .choice input {
-  margin-right: 10px;
-}
-
-#mcq .mcq-container .mcq-box .choice label {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  color: #000000;
-}
-
-#success {
+/* #success {
   height: 100vh;
   background: linear-gradient(269.85deg, #ffdf64 0.12%, #f4d456 99.86%);
   display: flex;

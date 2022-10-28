@@ -1,5 +1,4 @@
-// Array of Given Questions
-
+// Array of Questions
 let questionsArray = [
   {
     title: "What is the past form of 'eat'?",
@@ -99,60 +98,109 @@ let questionsArray = [
 ];
 
 // Query Selectors
-
-const homePage = document.getElementById("home");
-const mcqPage = document.getElementById("mcqPage");
+const homePage = document.getElementById("home-page");
+const mcqPage = document.getElementById("mcq-page");
+const resultPage = document.getElementById("result-page");
+const timeoutPage = document.getElementById("timeout-page");
 const startButton = document.getElementById("start-btn");
-const remainingTime = document.getElementById("remaining-time");
-const mcqContainer = document.getElementById("mcq-container");
 const finishBtn = document.getElementById("finish-btn");
-const resultPage = document.getElementById("resultPage");
+const startAgainBtn = document.getElementById("start-again");
+const remainingTimeContainer = document.getElementById("remaining-time");
+const mcqContainer = document.getElementById("mcq-container");
+const scoreContainer = document.getElementById("score-container");
 
-let scoreCount = 0;
+// Variables
+let countdown;
+let count = 600;
+let scoreCount;
+
+// Function to Restart Quiz
+
+// Initializer
+function init() {
+  mcqContainer.innerHTML = "";
+  scoreCount = 0;
+  remainingTimeContainer.innerHTML = "";
+  count = 60;
+  timerDisplay();
+  displayQuiz();
+}
 
 // Go to MCQ Page
 startButton.addEventListener("click", () => {
   homePage.classList.add("hide");
   mcqPage.classList.remove("hide");
-  countdown(remainingTime, 10, 0);
-  quizCreator();
+  init();
 });
 
+// Finish Quiz
 finishBtn.addEventListener("click", () => {
   mcqPage.classList.add("hide");
-  result;
+  resultPage.classList.remove("hide");
+  scoreContainer.innerHTML = scoreCount;
+  clearInterval(countdown);
 });
 
-// 10 Min Countdown Timer
-function countdown(elementName, minutes, seconds) {
-  let element, endTime, hours, mins, msLeft, time;
+// Restart Quiz
+startAgainBtn.addEventListener("click", (e) => {
+  init();
+  resultPage.classList.add("hide");
+  homePage.classList.add("hide");
+  mcqPage.classList.remove("hide");
+});
 
+const timerDisplay = () => {
   function twoDigits(n) {
     return n <= 9 ? "0" + n : n;
   }
 
-  function updateTimer() {
-    msLeft = endTime - +new Date();
-    if (msLeft < 1000) {
-      // element.innerHTML = "Time is up!";
-    } else {
-      time = new Date(msLeft);
-      hours = time.getUTCHours();
-      mins = time.getUTCMinutes();
-      element.innerHTML =
-        (hours ? hours + ":" + twoDigits(mins) : mins) +
-        ":" +
-        twoDigits(time.getUTCSeconds());
-      setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+  countdown = setInterval(() => {
+    let minutes = Math.floor(count / 60);
+    let seconds = count - minutes * 60;
+    count--;
+    remainingTimeContainer.innerHTML = `${twoDigits(minutes)}: ${twoDigits(
+      seconds
+    )}`;
+    if (count == 0) {
+      clearInterval(countdown);
+      mcqPage.classList.add("hide");
+      timeoutPage.classList.remove("hide");
     }
-  }
-  element = elementName;
-  endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
-  updateTimer();
-}
+  }, 1000);
+};
+
+// // 10 Min Countdown Timer
+// function countdown(elementName, minutes, seconds) {
+//   let element, endTime, hours, mins, msLeft, time;
+
+//   function twoDigits(n) {
+//     return n <= 9 ? "0" + n : n;
+//   }
+
+//   function updateTimer() {
+//     msLeft = endTime - +new Date();
+//     if (msLeft < 1000) {
+//       // element.innerHTML = "Time is up!";
+//       clearTimeout();
+//     } else {
+//       time = new Date(msLeft);
+//       hours = time.getUTCHours();
+//       mins = time.getUTCMinutes();
+//       element.innerHTML =
+//         (hours ? hours + ":" + twoDigits(mins) : mins) +
+//         ":" +
+//         twoDigits(time.getUTCSeconds());
+//       setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+//     }
+//   }
+//   element = elementName;
+//   endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
+
+//   updateTimer();
+// }
 
 // Function to Generate & Show All The Quiz
-function quizCreator() {
+function displayQuiz() {
   for (let i = 0; i < questionsArray.length; i++) {
     let div = document.createElement("div");
     div.classList.add("mcq", "box");
@@ -176,22 +224,18 @@ function checkAnswer(userOption) {
   let questionIndex = userOption.dataset.index;
   let question = document.getElementsByClassName("mcq")[questionIndex];
   let options = question.querySelectorAll(".options");
-  console.log(options);
 
   if (userSolution === questionsArray[questionIndex].answer) {
     scoreCount++;
-  } else {
-    //For marking the correct option
-    options.forEach((element) => {
-      if (element.innerText == questionsArray[questionCount].answer) {
-        element.classList.add("correct");
-      }
-    });
+    //   } else {
+    //     //For marking the correct option
+    //     options.forEach((element) => {
+    //       if (element.innerText == questionsArray[questionIndex].answer) {
+    //         element.classList.add("correct");
+    //       }
+    //     });
   }
+  options.forEach((element) => {
+    element.disabled = true;
+  });
 }
-
-// function init() {
-//   mcqContainer.innerHTML = "";
-//   countdown(remaining, 10, 0);
-//   quizCreator();
-// }
